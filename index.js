@@ -1,17 +1,11 @@
-require("dotenv").config();
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+require('dotenv').config();
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
-const corsOptions ={
-   origin:'*', 
-   credentials:true,
-   optionSuccessStatus:200,
-}
+const app = express();
 
-app.use(cors(corsOptions));
-
-var app = express();
+app.use(cors());
 
 app.use(bodyParser.json());
 
@@ -90,6 +84,6 @@ app.get('/stocks', function (_req, res) {
 
 const port = process.env.PORT;
 
-app.listen(port, function () {
+app.listen(port, () => {
   console.log(`API-XP rodando na porta ${port}.`);
 });
