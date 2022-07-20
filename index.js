@@ -1,10 +1,20 @@
 require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
+
+const corsOptions ={
+   origin:'*', 
+   credentials:true,
+   optionSuccessStatus:200,
+}
+
+app.use(cors(corsOptions));
 
 var app = express();
 
 app.use(bodyParser.json());
+
 
 app.get('/stocks', function (_req, res) {
   var dados = [
